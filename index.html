@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tinuola Rotimi | Data Scientist and ML Engineer</title>
-    <meta name="description" content="Tinuola Rotimi is a Data Scientist and ML Engineer specializing in AML, ESG, predictive risk analytics, geospatial intelligence, and financial inclusion.">
+    <title>Tinuola Rotimi | Data Scientist & Risk Intelligence Consultant</title>
+    <meta name="description" content="Tinuola Rotimi is a Data Scientist, ML Engineer, and Risk Consultant specializing in AML, ESG, predictive risk analytics, geospatial intelligence, and client advisory.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
@@ -528,21 +528,6 @@
             height: 16px;
         }
 
-        .btn-disabled {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border);
-            opacity: 0.4;
-            cursor: default;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
         .project-badge {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.65rem;
@@ -566,10 +551,40 @@
             50% { opacity: 0.6; }
         }
 
-        .project-badge.coming-soon {
-            background: transparent;
-            color: var(--text-muted);
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
             border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: rgba(212, 168, 83, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .service-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
         }
 
         .skills-grid {
@@ -684,6 +699,9 @@
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .project-card {
                 grid-template-columns: 1fr;
             }
@@ -691,6 +709,9 @@
 
         @media (max-width: 600px) {
             .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-grid {
                 grid-template-columns: 1fr;
             }
             .hero-name {
@@ -715,6 +736,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Work</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="mailto:thetinuolarotimi@gmail.com">Contact</a></li>
             </ul>
@@ -729,12 +751,13 @@
                 <div class="hero-roles">
                     <span class="hero-role-tag active">Data Scientist</span>
                     <span class="hero-role-tag">ML Engineer</span>
-                    <span class="hero-role-tag">Risk Analyst</span>
-                    <span class="hero-role-tag">Fintech Specialist</span>
-                    <span class="hero-role-tag">Geospatial Analyst</span>
+                    <span class="hero-role-tag">Data Analyst</span>
+                    <span class="hero-role-tag">Risk Intelligence</span>
+                    <span class="hero-role-tag">Client Service Lead</span>
+                    <span class="hero-role-tag">Fintech Consultant</span>
                 </div>
                 <p class="hero-bio">
-                    I build <strong>production machine learning systems</strong> for anti money laundering, conflict forecasting, and predictive risk analytics. From <strong>anomaly detection</strong> to <strong>time series modeling</strong>, I ship models that help organizations navigate fragile states, frontier markets, and fintech ecosystems.
+                    I build <strong>production machine learning systems</strong> and deliver <strong>strategic risk intelligence</strong> for organizations navigating fragile states, emerging markets, and fintech ecosystems. My work bridges the gap between complex data and real-world impact — from <strong>anomaly detection</strong> and <strong>time series forecasting</strong> to <strong>business analysis</strong> and <strong>client advisory</strong>. I don't just ship models; I ship solutions that clients can trust and act on.
                 </p>
                 <div class="hero-links">
                     <a href="mailto:thetinuolarotimi@gmail.com" class="hero-link email">
@@ -763,14 +786,16 @@
 
         <section class="section" id="about">
             <p class="section-label">About</p>
-            <h2 class="section-title">The person behind the models.</h2>
+            <h2 class="section-title">The data scientist behind the solutions.</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>I work at the intersection of <strong>advanced analytics</strong>, <strong>emerging market risk</strong>, and <strong>strategic decision making</strong>. My expertise spans <strong>unsupervised anomaly detection</strong>, <strong>time series forecasting</strong>, and <strong>geospatial intelligence</strong>.</p>
+                    <p>I work at the intersection of <strong>advanced analytics</strong>, <strong>emerging market risk</strong>, and <strong>strategic decision making</strong>. My expertise spans <strong>unsupervised anomaly detection</strong>, <strong>time series forecasting</strong>, and <strong>geospatial intelligence</strong>, but I am not limited to just building models.</p>
                     <br>
-                    <p>I build <strong>end to end pipelines</strong> from data generation to deployed APIs, enabling fintech and humanitarian organizations to act on insights in real time. Every model I ship is designed for production, not just presentation.</p>
+                    <p>I also thrive in <strong>client services</strong> and <strong>customer support</strong> — translating complex technical findings into clear, actionable recommendations for stakeholders. I believe that a model is only as valuable as the decisions it enables.</p>
                     <br>
-                    <p>When I am not training models, I am earning certifications. <strong>Thirteen and counting.</strong> I believe in continuous learning because the field demands it.</p>
+                    <p>Whether I'm engineering an end-to-end ETL pipeline, advising a fintech on AML compliance, or supporting a humanitarian organization with geospatial risk maps, my goal is always the same: deliver <strong>intelligence you can act on, analysis you can trust, and support you can rely on.</strong></p>
+                    <br>
+                    <p>I continue to deploy new models and earn new certifications because the field demands it. <strong>Thirteen and counting.</strong></p>
                 </div>
                 <div class="about-highlights">
                     <div class="about-highlight">
@@ -793,7 +818,6 @@
             <p class="section-label">Work</p>
             <h2 class="section-title">Selected projects.</h2>
             <div class="projects-grid">
-
                 <div class="project-card">
                     <div class="project-card-main">
                         <h3>AML Transaction Monitoring Anomaly Detection</h3>
@@ -823,32 +847,29 @@
                         <span class="project-badge live">Live</span>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="project-card">
-                    <div class="project-card-main">
-                        <h3>Conflict Displacement Forecast Time Series Prediction</h3>
-                        <p>Multi model forecasting system to predict internally displaced persons flows across Sub Saharan Africa. Merged ACLED conflict event data with UNHCR displacement records. Built and compared ARIMA, Prophet, and LSTM models. Enabled humanitarian organizations to preposition resources before displacement spikes occurred.</p>
-                        <div class="project-stats">
-                            <div class="project-stat"><strong>94%</strong> Accuracy</div>
-                            <div class="project-stat"><strong>3</strong> Model Architectures</div>
-                            <div class="project-stat"><strong>Plotly</strong> Visualizations</div>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>ARIMA</span>
-                            <span>Prophet</span>
-                            <span>LSTM</span>
-                            <span>Plotly</span>
-                        </div>
-                        <div class="project-links">
-                            <span class="btn-disabled">Coming Soon</span>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="project-badge coming-soon">Coming Soon</span>
-                    </div>
+        <section class="section" id="services">
+            <p class="section-label">Services</p>
+            <h2 class="section-title">What I bring to the table.</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h4>Machine Learning Engineering</h4>
+                    <p>Building, training, and deploying production-grade models for anomaly detection, forecasting, and risk analytics.</p>
                 </div>
-
+                <div class="service-card">
+                    <h4>Data & Business Intelligence</h4>
+                    <p>Designing dashboards, ETL pipelines, and analytics frameworks that turn raw data into strategic business insights.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Client Advisory & Support</h4>
+                    <p>Bridging the gap between technical teams and stakeholders. I explain complex models in plain language and ensure client success.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Risk & Compliance Analytics</h4>
+                    <p>Specializing in AML, ESG frameworks, and financial crime prevention for fintech and crypto ecosystems.</p>
+                </div>
             </div>
         </section>
 
@@ -857,27 +878,33 @@
             <h2 class="section-title">Technologies I work with.</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h4>Languages</h4>
+                    <h4>Languages & Frameworks</h4>
                     <div class="skill-list">
                         <span class="skill-item">Python</span>
                         <span class="skill-item">SQL</span>
                         <span class="skill-item">DAX</span>
-                        <span class="skill-item">HTML and CSS</span>
+                        <span class="skill-item">HTML & CSS</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h4>Machine Learning</h4>
+                    <h4>Machine Learning & AI</h4>
                     <div class="skill-list">
-                        <span class="skill-item">Scikit learn</span>
+                        <span class="skill-item">Scikit-learn</span>
                         <span class="skill-item">TensorFlow</span>
                         <span class="skill-item">Keras</span>
                         <span class="skill-item">Prophet</span>
                         <span class="skill-item">ARIMA</span>
                         <span class="skill-item">LSTM</span>
+                        <span class="skill-item">Neural Networks</span>
+                        <span class="skill-item">NLP (Natural Language Processing)</span>
+                        <span class="skill-item">Large Language Models (LLMs)</span>
+                        <span class="skill-item">Generative AI</span>
+                        <span class="skill-item">Anomaly Detection</span>
+                        <span class="skill-item">Time Series Forecasting</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h4>Data and Analytics</h4>
+                    <h4>Data, Analytics & BI</h4>
                     <div class="skill-list">
                         <span class="skill-item">Pandas</span>
                         <span class="skill-item">NumPy</span>
@@ -885,17 +912,26 @@
                         <span class="skill-item">Plotly</span>
                         <span class="skill-item">Power BI</span>
                         <span class="skill-item">Tableau</span>
-                        <span class="skill-item">BigQuery</span>
+                        <span class="skill-item">Google BigQuery</span>
+                        <span class="skill-item">Geospatial Intelligence (GIS)</span>
+                        <span class="skill-item">ETL Pipelines</span>
+                        <span class="skill-item">Data Validation</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h4>Deployment and Tools</h4>
+                    <h4>Deployment, Tools & Web3</h4>
                     <div class="skill-list">
                         <span class="skill-item">Flask</span>
                         <span class="skill-item">Git</span>
                         <span class="skill-item">Render</span>
                         <span class="skill-item">Hugging Face</span>
                         <span class="skill-item">GitHub Pages</span>
+                        <span class="skill-item">API Development</span>
+                        <span class="skill-item">Blockchain</span>
+                        <span class="skill-item">DeFi</span>
+                        <span class="skill-item">Smart Contracts</span>
+                        <span class="skill-item">Web3</span>
+                        <span class="skill-item">KYC / AML Compliance</span>
                     </div>
                 </div>
             </div>
