@@ -21,6 +21,8 @@
             --gold: #d4a853;
             --gold-light: #e8cd7a;
             --gold-dark: #b8922e;
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.3);
             --gradient-gold: linear-gradient(135deg, #d4a853 0%, #e8cd7a 30%, #f0d98a 50%, #d4a853 70%, #b8922e 100%);
             --card-glow: 0 0 60px rgba(212, 168, 83, 0.05);
             --card-border: 1px solid #1a1a1a;
@@ -429,6 +431,10 @@
             letter-spacing: -0.3px;
             margin-bottom: 12px;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .project-card-main p {
@@ -529,26 +535,24 @@
         }
 
         .project-badge {
+            display: inline-block;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.65rem;
             font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 4px 12px;
+            border-radius: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
             white-space: nowrap;
-        }
-
-        .project-badge.live {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: var(--green);
+            color: #ffffff;
+            box-shadow: 0 0 15px var(--green-glow);
             animation: livePulse 2s ease-in-out infinite;
         }
 
         @keyframes livePulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
+            0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--green-glow); }
+            50% { opacity: 0.7; box-shadow: 0 0 20px var(--green-glow); }
         }
 
         .service-grid {
@@ -576,7 +580,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.85rem;
             color: var(--gold);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -584,7 +588,9 @@
         .service-card p {
             font-size: 0.85rem;
             color: var(--text-secondary);
-            line-height: 1.5;
+            line-height: 1.6;
+            max-width: 90%;
+            margin: 0 auto;
         }
 
         .skills-grid {
@@ -753,11 +759,12 @@
                     <span class="hero-role-tag">ML Engineer</span>
                     <span class="hero-role-tag">Data Analyst</span>
                     <span class="hero-role-tag">Risk Intelligence</span>
+                    <span class="hero-role-tag">Geospatial Analyst</span>
                     <span class="hero-role-tag">Client Service Lead</span>
                     <span class="hero-role-tag">Fintech Consultant</span>
                 </div>
                 <p class="hero-bio">
-                    I build <strong>production machine learning systems</strong> and deliver <strong>strategic risk intelligence</strong> for organizations navigating fragile states, emerging markets, and fintech ecosystems. My work bridges the gap between complex data and real-world impact — from <strong>anomaly detection</strong> and <strong>time series forecasting</strong> to <strong>business analysis</strong> and <strong>client advisory</strong>. I don't just ship models; I ship solutions that clients can trust and act on.
+                    I build <strong>production machine learning systems</strong> and deliver <strong>strategic risk intelligence</strong> for organizations navigating fragile states, emerging markets, and fintech ecosystems. My work bridges the gap between complex data and real world impact from <strong>anomaly detection</strong> and <strong>time series forecasting</strong> to <strong>business analysis</strong> and <strong>client advisory</strong>. I do not just ship models. I ship solutions that clients can trust and act on.
                 </p>
                 <div class="hero-links">
                     <a href="mailto:thetinuolarotimi@gmail.com" class="hero-link email">
@@ -791,15 +798,13 @@
                 <div class="about-text">
                     <p>I work at the intersection of <strong>advanced analytics</strong>, <strong>emerging market risk</strong>, and <strong>strategic decision making</strong>. My expertise spans <strong>unsupervised anomaly detection</strong>, <strong>time series forecasting</strong>, and <strong>geospatial intelligence</strong>, but I am not limited to just building models.</p>
                     <br>
-                    <p>I also thrive in <strong>client services</strong> and <strong>customer support</strong> — translating complex technical findings into clear, actionable recommendations for stakeholders. I believe that a model is only as valuable as the decisions it enables.</p>
+                    <p>I also thrive in <strong>client services</strong> and <strong>customer support</strong> translating complex technical findings into clear actionable recommendations for stakeholders. I believe that a model is only as valuable as the decisions it enables.</p>
                     <br>
-                    <p>Whether I'm engineering an end-to-end ETL pipeline, advising a fintech on AML compliance, or supporting a humanitarian organization with geospatial risk maps, my goal is always the same: deliver <strong>intelligence you can act on, analysis you can trust, and support you can rely on.</strong></p>
-                    <br>
-                    <p>I continue to deploy new models and earn new certifications because the field demands it. <strong>Thirteen and counting.</strong></p>
+                    <p>Whether I am engineering an end to end ETL pipeline, advising a fintech on AML compliance, or supporting a humanitarian organization with geospatial risk maps, my goal is always the same. Deliver <strong>intelligence you can act on, analysis you can trust, and support you can rely on.</strong></p>
                 </div>
                 <div class="about-highlights">
                     <div class="about-highlight">
-                        <div class="about-highlight-number">13</div>
+                        <div class="about-highlight-number">5</div>
                         <div class="about-highlight-label">Professional Certifications</div>
                     </div>
                     <div class="about-highlight">
@@ -809,6 +814,10 @@
                     <div class="about-highlight">
                         <div class="about-highlight-number">6+</div>
                         <div class="about-highlight-label">Projects Deployed</div>
+                    </div>
+                    <div class="about-highlight">
+                        <div class="about-highlight-number">5</div>
+                        <div class="about-highlight-label">Industry Awards</div>
                     </div>
                 </div>
             </div>
@@ -820,7 +829,10 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-card-main">
-                        <h3>AML Transaction Monitoring Anomaly Detection</h3>
+                        <h3>
+                            AML Transaction Monitoring Anomaly Detection
+                            <span class="project-badge">Live</span>
+                        </h3>
                         <p>Unsupervised machine learning pipeline to detect suspicious transaction patterns in simulated banking and blockchain data. Engineered features including transaction frequency, amount deviation, and time of day patterns. Used Isolation Forest and Autoencoder architectures to flag anomalous activity. Deployed as a Flask API enabling fintech and crypto clients to automate AML compliance workflows.</p>
                         <div class="project-stats">
                             <div class="project-stat"><strong>89%</strong> Precision</div>
@@ -844,7 +856,7 @@
                         </div>
                     </div>
                     <div>
-                        <span class="project-badge live">Live</span>
+                        <!-- Badge is now inside the h3 tag, so this div is empty -->
                     </div>
                 </div>
             </div>
@@ -856,18 +868,18 @@
             <div class="service-grid">
                 <div class="service-card">
                     <h4>Machine Learning Engineering</h4>
-                    <p>Building, training, and deploying production-grade models for anomaly detection, forecasting, and risk analytics.</p>
+                    <p>Building, training, and deploying production grade models for anomaly detection, forecasting, and risk analytics.</p>
                 </div>
                 <div class="service-card">
-                    <h4>Data & Business Intelligence</h4>
+                    <h4>Data and Business Intelligence</h4>
                     <p>Designing dashboards, ETL pipelines, and analytics frameworks that turn raw data into strategic business insights.</p>
                 </div>
                 <div class="service-card">
-                    <h4>Client Advisory & Support</h4>
+                    <h4>Client Advisory and Support</h4>
                     <p>Bridging the gap between technical teams and stakeholders. I explain complex models in plain language and ensure client success.</p>
                 </div>
                 <div class="service-card">
-                    <h4>Risk & Compliance Analytics</h4>
+                    <h4>Risk and Compliance Analytics</h4>
                     <p>Specializing in AML, ESG frameworks, and financial crime prevention for fintech and crypto ecosystems.</p>
                 </div>
             </div>
@@ -878,16 +890,16 @@
             <h2 class="section-title">Technologies I work with.</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h4>Languages & Frameworks</h4>
+                    <h4>Languages and Frameworks</h4>
                     <div class="skill-list">
                         <span class="skill-item">Python</span>
                         <span class="skill-item">SQL</span>
                         <span class="skill-item">DAX</span>
-                        <span class="skill-item">HTML & CSS</span>
+                        <span class="skill-item">HTML and CSS</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h4>Machine Learning & AI</h4>
+                    <h4>Machine Learning and AI</h4>
                     <div class="skill-list">
                         <span class="skill-item">Scikit-learn</span>
                         <span class="skill-item">TensorFlow</span>
@@ -896,15 +908,15 @@
                         <span class="skill-item">ARIMA</span>
                         <span class="skill-item">LSTM</span>
                         <span class="skill-item">Neural Networks</span>
-                        <span class="skill-item">NLP (Natural Language Processing)</span>
-                        <span class="skill-item">Large Language Models (LLMs)</span>
+                        <span class="skill-item">NLP</span>
+                        <span class="skill-item">Large Language Models</span>
                         <span class="skill-item">Generative AI</span>
                         <span class="skill-item">Anomaly Detection</span>
                         <span class="skill-item">Time Series Forecasting</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h4>Data, Analytics & BI</h4>
+                    <h4>Data, Analytics and BI</h4>
                     <div class="skill-list">
                         <span class="skill-item">Pandas</span>
                         <span class="skill-item">NumPy</span>
@@ -913,13 +925,13 @@
                         <span class="skill-item">Power BI</span>
                         <span class="skill-item">Tableau</span>
                         <span class="skill-item">Google BigQuery</span>
-                        <span class="skill-item">Geospatial Intelligence (GIS)</span>
+                        <span class="skill-item">Geospatial Intelligence</span>
                         <span class="skill-item">ETL Pipelines</span>
                         <span class="skill-item">Data Validation</span>
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h4>Deployment, Tools & Web3</h4>
+                    <h4>Deployment, Tools and Web3</h4>
                     <div class="skill-list">
                         <span class="skill-item">Flask</span>
                         <span class="skill-item">Git</span>
@@ -931,7 +943,7 @@
                         <span class="skill-item">DeFi</span>
                         <span class="skill-item">Smart Contracts</span>
                         <span class="skill-item">Web3</span>
-                        <span class="skill-item">KYC / AML Compliance</span>
+                        <span class="skill-item">KYC and AML Compliance</span>
                     </div>
                 </div>
             </div>
