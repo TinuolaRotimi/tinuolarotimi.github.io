@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tinuola Rotimi | Data Scientist & ML Engineer Portfolio</title>
-    <meta name="description" content="Tinuola Rotimi is a Data Scientist and ML Engineer specializing in AML, ESG, predictive risk analytics, geospatial intelligence, and financial inclusion. View live projects and certifications.">
-    <meta name="keywords" content="Data Scientist, ML Engineer, Predictive Analytics, AML, ESG, Geospatial Intelligence, Financial Inclusion, Python, SQL, Power BI, Tableau, BigQuery, Tinuola Rotimi">
+    <title>Tinuola Rotimi | Data Scientist and ML Engineer</title>
+    <meta name="description" content="Tinuola Rotimi is a Data Scientist and ML Engineer specializing in AML, ESG, predictive risk analytics, geospatial intelligence, and financial inclusion.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #161622;
-            --border: #252540;
-            --text-primary: #e8e8f0;
-            --text-secondary: #9898b0;
-            --accent: #e63946;
-            --accent-light: #ff6b6b;
-            --accent-glow: rgba(230, 57, 70, 0.3);
-            --gradient: linear-gradient(135deg, #e63946 0%, #ff6b6b 50%, #ff8e8e 100%);
-            --card-glow: 0 0 30px rgba(230, 57, 70, 0.1);
+            --bg-primary: #050508;
+            --bg-secondary: #0a0a12;
+            --bg-card: #0f0f1a;
+            --border: #1a1a2e;
+            --text-primary: #f0f0f8;
+            --text-secondary: #9090a8;
+            --text-muted: #606078;
+            --accent: #ffffff;
+            --accent-dim: #c0c0d0;
+            --card-glow: 0 0 40px rgba(255, 255, 255, 0.03);
+            --border-glow: 0 0 0 1px rgba(255, 255, 255, 0.06);
         }
 
         * {
@@ -30,260 +29,295 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.7;
-            background-image: 
-                radial-gradient(ellipse at 20% 20%, rgba(230, 57, 70, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 60%, rgba(255, 107, 107, 0.04) 0%, transparent 50%);
-            background-attachment: fixed;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px 24px;
+            padding: 0 28px;
         }
 
         .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 28px 0;
             border-bottom: 1px solid var(--border);
-            margin-bottom: 50px;
+            margin-bottom: 80px;
+            position: sticky;
+            top: 0;
+            background: rgba(5, 5, 8, 0.85);
+            backdrop-filter: blur(20px);
+            z-index: 100;
         }
 
         .nav-logo {
-            font-size: 1.4rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--text-muted);
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 32px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
             transition: color 0.2s;
+            letter-spacing: 0.2px;
         }
 
         .nav-links a:hover {
-            color: var(--accent-light);
+            color: var(--text-primary);
         }
 
         .hero {
-            text-align: center;
-            padding: 40px 0 60px;
+            padding: 20px 0 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(230, 57, 70, 0.1);
-            border: 1px solid rgba(230, 57, 70, 0.3);
-            color: var(--accent-light);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+        .hero-content {
+            max-width: 520px;
+        }
+
+        .hero-greeting {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
             font-weight: 500;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 {
-            font-size: 3.4rem;
-            font-weight: 900;
+            color: var(--text-muted);
             letter-spacing: 2px;
-            margin-bottom: 16px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
             text-transform: uppercase;
+            margin-bottom: 16px;
         }
 
-        .hero img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 3px solid var(--accent-light);
-            box-shadow: 0 0 30px var(--accent-glow);
-            margin-bottom: 20px;
-            object-fit: cover;
+        .hero-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            color: var(--text-primary);
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto 30px;
+        .hero-role {
+            font-size: 1.25rem;
             font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.6;
         }
 
-        .hero-stats {
+        .hero-role strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+
+        .hero-link:hover {
+            color: var(--text-primary);
+        }
+
+        .hero-visual {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 20px;
+            align-items: center;
         }
 
-        .hero-stat {
-            text-align: center;
+        .hero-image-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
         }
 
-        .hero-stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-light);
+        .hero-image-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            animation: spin 20s linear infinite;
         }
 
-        .hero-stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+            filter: grayscale(20%);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
         }
 
         .section-title {
-            font-size: 1.6rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.4rem;
             font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 48px;
             color: var(--text-primary);
-            margin: 60px 0 30px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 28px;
-            background: var(--gradient);
-            border-radius: 2px;
         }
 
         .projects-grid {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
         }
 
         .project-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 36px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.3s;
+            box-shadow: var(--card-glow);
         }
 
         .project-card:hover {
-            border-color: rgba(230, 57, 70, 0.5);
-            box-shadow: var(--card-glow);
-            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: var(--card-glow), var(--border-glow);
+            transform: translateY(-2px);
         }
 
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        .project-card-header {
+        .project-card-top {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .project-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .project-status {
-            font-size: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
             font-weight: 600;
-            padding: 4px 12px;
-            border-radius: 12px;
-            white-space: nowrap;
+            letter-spacing: -0.3px;
         }
 
-        .project-status.live {
-            background: rgba(46, 213, 115, 0.1);
-            color: #2ed573;
-            border: 1px solid rgba(46, 213, 115, 0.2);
+        .project-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
-        .project-status.coming-soon {
-            background: rgba(255, 193, 7, 0.1);
-            color: #ffc107;
-            border: 1px solid rgba(255, 193, 7, 0.2);
+        .project-badge.live {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-badge.coming-soon {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
         }
 
         .project-card p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
+            font-size: 0.92rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
         }
 
-        .project-metrics {
+        .project-stats {
             display: flex;
-            gap: 20px;
-            margin-bottom: 16px;
+            gap: 28px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
 
-        .project-metric {
+        .project-stat {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             font-size: 0.85rem;
-            color: var(--accent-light);
+            color: var(--text-muted);
             font-weight: 500;
         }
 
-        .project-metric-icon {
-            font-size: 1rem;
+        .project-stat strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 18px;
+            margin-bottom: 24px;
         }
 
         .project-tags span {
-            background: rgba(230, 57, 70, 0.08);
-            color: var(--accent-light);
-            padding: 5px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-muted);
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.78rem;
             font-weight: 500;
-            border: 1px solid rgba(230, 57, 70, 0.15);
+            border: 1px solid var(--border);
+            letter-spacing: 0.2px;
         }
 
         .project-links {
@@ -296,105 +330,167 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
+            transition: all 0.3s;
+            letter-spacing: 0.2px;
+            font-family: 'Inter', sans-serif;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: white;
+            background: var(--text-primary);
+            color: var(--bg-primary);
         }
 
         .btn-primary:hover {
-            background: #c1121f;
-            box-shadow: 0 4px 20px var(--accent-glow);
+            background: var(--accent-dim);
+            transform: translateY(-1px);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--text-primary);
+            color: var(--text-secondary);
             border: 1px solid var(--border);
         }
 
         .btn-outline:hover {
-            border-color: var(--accent);
-            background: rgba(230, 57, 70, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--text-primary);
         }
 
         .btn img {
             height: 18px;
         }
 
-        .skills-container {
+        .btn-disabled {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            opacity: 0.5;
+            cursor: default;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 12px;
         }
 
-        .skill-category {
+        .skill-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 16px;
+            padding: 24px;
         }
 
-        .skill-category h4 {
-            font-size: 0.85rem;
-            color: var(--accent-light);
-            margin-bottom: 12px;
+        .skill-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
         }
 
-        .skill-tags {
+        .skill-list {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
         }
 
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.03);
+        .skill-item {
+            background: transparent;
             color: var(--text-secondary);
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 5px 0;
+            font-size: 0.85rem;
+            font-weight: 400;
+            display: block;
+            width: 100%;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
         }
 
         .footer {
             text-align: center;
-            padding: 50px 0 30px;
+            padding: 60px 0 40px;
             border-top: 1px solid var(--border);
-            margin-top: 60px;
-            color: var(--text-secondary);
+            margin-top: 80px;
+            color: var(--text-muted);
             font-size: 0.85rem;
         }
 
         .footer a {
-            color: var(--accent-light);
+            color: var(--text-secondary);
             text-decoration: none;
+            transition: color 0.2s;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.4rem;
+        .footer a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
             }
-            .hero-stats {
-                gap: 20px;
+            .hero-content {
+                max-width: 100%;
             }
-            .project-card-header {
-                flex-direction: column;
-                gap: 8px;
+            .hero-links {
+                justify-content: center;
             }
-            .nav {
-                flex-direction: column;
-                gap: 12px;
+            .hero-name {
+                font-size: 2.8rem;
+            }
+            .hero-image-wrapper {
+                width: 220px;
+                height: 220px;
+                margin: 0 auto;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-name {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -402,151 +498,162 @@
 <body>
     <div class="container">
         <nav class="nav">
-            <div class="nav-logo">TR</div>
+            <div class="nav-logo">TR<span>.</span></div>
             <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Work</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="https://github.com/TinuolaRotimi" target="_blank">GitHub</a></li>
-                <li><a href="https://linkedin.com/in/tinuolarotimi" target="_blank">LinkedIn</a></li>
+                <li><a href="mailto:thetinuolarotimi@gmail.com">Contact</a></li>
             </ul>
         </nav>
 
         <section class="hero">
-            <div class="hero-badge">Available for Opportunities</div>
-            <img src="profile.jpg" alt="Tinuola Rotimi" loading="lazy">
-            <h1>TINUOLA ROTIMI</h1>
-            <p>I operate at the intersection of advanced analytics, emerging market risk, and strategic decision making. I build production ready machine learning systems for AML, ESG, predictive risk intelligence, and geospatial forecasting, helping organizations navigate fragile states, frontier markets, and fintech ecosystems.</p>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-number">6+</div>
-                    <div class="hero-stat-label">ML Projects Deployed</div>
+            <div class="hero-content">
+                <p class="hero-greeting">Hi, my name is</p>
+                <h1 class="hero-name">Tinuola Rotimi.</h1>
+                <p class="hero-role">I am a <strong>Data Scientist</strong> and <strong>ML Engineer</strong> building production ready machine learning systems for AML detection, ESG analytics, predictive risk intelligence, and geospatial forecasting. I help organizations navigate fragile states, frontier markets, and fintech ecosystems with data driven decisions.</p>
+                <div class="hero-links">
+                    <a href="mailto:thetinuolarotimi@gmail.com" class="hero-link">
+                        thetinuolarotimi@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/tinuola-rotimi/" target="_blank" class="hero-link">
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/TinuolaRotimi" target="_blank" class="hero-link">
+                        GitHub
+                    </a>
                 </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">94%</div>
-                    <div class="hero-stat-label">Top Model Accuracy</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number">13</div>
-                    <div class="hero-stat-label">Professional Certifications</div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-ring"></div>
+                    <img src="profile.jpg" alt="Tinuola Rotimi" class="hero-image" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <h2 class="section-title" id="projects">Featured Projects</h2>
-        <div class="projects-grid">
+        <section class="section" id="about">
+            <p class="section-label">About</p>
+            <h2 class="section-title">What I do.</h2>
+            <p class="about-text">
+                I work at the intersection of <strong>advanced analytics</strong>, <strong>emerging market risk</strong>, and <strong>strategic decision making</strong>. My expertise spans unsupervised anomaly detection, time series forecasting, and geospatial intelligence. I build end to end pipelines from data generation to deployed APIs, enabling fintech and humanitarian organizations to act on insights in real time. With <strong>13 professional certifications</strong> and a track record of <strong>94% model accuracy</strong> on production systems, I bring rigor and reliability to every project.
+            </p>
+        </section>
 
-            <div class="project-card">
-                <div class="project-card-header">
-                    <h3>AML Transaction Monitoring – Anomaly Detection</h3>
-                    <span class="project-status live">Live</span>
-                </div>
-                <p>Unsupervised machine learning pipeline to detect suspicious transaction patterns in simulated banking and blockchain data. Engineered features including transaction frequency, amount deviation, and time of day patterns. Used Isolation Forest and Autoencoder architectures to flag anomalous activity. Achieved 89% precision with a 0.1% false positive rate. Deployed as a Flask API enabling fintech and crypto clients to automate AML compliance workflows.</p>
-                <div class="project-metrics">
-                    <div class="project-metric">
-                        <span class="project-metric-icon">🎯</span> 89% Precision
-                    </div>
-                    <div class="project-metric">
-                        <span class="project-metric-icon">📉</span> 0.1% False Positive Rate
-                    </div>
-                    <div class="project-metric">
-                        <span class="project-metric-icon">🤖</span> Isolation Forest + Autoencoder
-                    </div>
-                </div>
-                <div class="project-tags">
-                    <span>Python</span>
-                    <span>Scikit-learn</span>
-                    <span>Pandas</span>
-                    <span>TensorFlow</span>
-                    <span>Flask</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://colab.research.google.com/drive/12CPIXY0UTaB9DxAKeLr1w60r_qyRWY_g?usp=sharing" target="_blank" class="btn btn-outline">
-                        <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab"> View Notebook
-                    </a>
-                    <a href="https://aml-monitor-rxzy.onrender.com" target="_blank" class="btn btn-primary">
-                        🚀 Live Demo
-                    </a>
-                </div>
-            </div>
+        <section class="section" id="projects">
+            <p class="section-label">Work</p>
+            <h2 class="section-title">Selected projects.</h2>
+            <div class="projects-grid">
 
-            <div class="project-card">
-                <div class="project-card-header">
-                    <h3>Conflict Displacement Forecast – Time Series Prediction</h3>
-                    <span class="project-status coming-soon">Coming Soon</span>
-                </div>
-                <p>Multi model forecasting system to predict internally displaced persons flows across Sub Saharan Africa. Merged ACLED conflict event data with UNHCR displacement records. Built and compared ARIMA, Prophet, and LSTM models. Enabled humanitarian organizations to preposition resources before displacement spikes occurred.</p>
-                <div class="project-metrics">
-                    <div class="project-metric">
-                        <span class="project-metric-icon">🎯</span> 94% Accuracy
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <h3>AML Transaction Monitoring Anomaly Detection</h3>
+                        <span class="project-badge live">Live</span>
                     </div>
-                    <div class="project-metric">
-                        <span class="project-metric-icon">📊</span> ARIMA + Prophet + LSTM
+                    <p>Unsupervised machine learning pipeline to detect suspicious transaction patterns in simulated banking and blockchain data. Engineered features including transaction frequency, amount deviation, and time of day patterns. Used Isolation Forest and Autoencoder architectures to flag anomalous activity. Deployed as a Flask API enabling fintech and crypto clients to automate AML compliance workflows.</p>
+                    <div class="project-stats">
+                        <div class="project-stat"><strong>89%</strong> Precision</div>
+                        <div class="project-stat"><strong>0.1%</strong> False Positive Rate</div>
+                        <div class="project-stat"><strong>2</strong> Models Deployed</div>
                     </div>
-                    <div class="project-metric">
-                        <span class="project-metric-icon">🗺️</span> Plotly Visualizations
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Scikit-learn</span>
+                        <span>Pandas</span>
+                        <span>TensorFlow</span>
+                        <span>Flask</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://colab.research.google.com/drive/12CPIXY0UTaB9DxAKeLr1w60r_qyRWY_g?usp=sharing" target="_blank" class="btn btn-outline">
+                            <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab"> View Notebook
+                        </a>
+                        <a href="https://aml-monitor-rxzy.onrender.com" target="_blank" class="btn btn-primary">
+                            Live Demo
+                        </a>
                     </div>
                 </div>
-                <div class="project-tags">
-                    <span>Python</span>
-                    <span>ARIMA</span>
-                    <span>Prophet</span>
-                    <span>LSTM</span>
-                    <span>Plotly</span>
-                </div>
-                <div class="project-links">
-                    <span class="btn btn-outline" style="opacity: 0.5; cursor: default;">🔗 Coming Soon</span>
-                </div>
-            </div>
 
-        </div>
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <h3>Conflict Displacement Forecast Time Series Prediction</h3>
+                        <span class="project-badge coming-soon">Coming Soon</span>
+                    </div>
+                    <p>Multi model forecasting system to predict internally displaced persons flows across Sub Saharan Africa. Merged ACLED conflict event data with UNHCR displacement records. Built and compared ARIMA, Prophet, and LSTM models. Enabled humanitarian organizations to preposition resources before displacement spikes occurred.</p>
+                    <div class="project-stats">
+                        <div class="project-stat"><strong>94%</strong> Accuracy</div>
+                        <div class="project-stat"><strong>3</strong> Model Architectures</div>
+                        <div class="project-stat"><strong>Plotly</strong> Visualizations</div>
+                    </div>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>ARIMA</span>
+                        <span>Prophet</span>
+                        <span>LSTM</span>
+                        <span>Plotly</span>
+                    </div>
+                    <div class="project-links">
+                        <span class="btn-disabled">Coming Soon</span>
+                    </div>
+                </div>
 
-        <h2 class="section-title" id="skills">Technical Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h4>Languages & Frameworks</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">DAX</span>
-                    <span class="skill-tag">HTML/CSS</span>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <p class="section-label">Skills</p>
+            <h2 class="section-title">Technologies I work with.</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Languages</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">DAX</span>
+                        <span class="skill-item">HTML / CSS</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>ML and AI</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Scikit learn</span>
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">Keras</span>
+                        <span class="skill-item">Prophet</span>
+                        <span class="skill-item">ARIMA</span>
+                        <span class="skill-item">LSTM</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Data and BI</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Pandas</span>
+                        <span class="skill-item">NumPy</span>
+                        <span class="skill-item">Matplotlib</span>
+                        <span class="skill-item">Plotly</span>
+                        <span class="skill-item">Power BI</span>
+                        <span class="skill-item">Tableau</span>
+                        <span class="skill-item">BigQuery</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h4>Deployment</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Flask</span>
+                        <span class="skill-item">Render</span>
+                        <span class="skill-item">Hugging Face</span>
+                        <span class="skill-item">GitHub Pages</span>
+                    </div>
                 </div>
             </div>
-            <div class="skill-category">
-                <h4>ML & AI</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Scikit-learn</span>
-                    <span class="skill-tag">TensorFlow</span>
-                    <span class="skill-tag">Keras</span>
-                    <span class="skill-tag">Prophet</span>
-                    <span class="skill-tag">ARIMA</span>
-                    <span class="skill-tag">LSTM</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h4>Data & BI</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">Matplotlib</span>
-                    <span class="skill-tag">Plotly</span>
-                    <span class="skill-tag">Power BI</span>
-                    <span class="skill-tag">Tableau</span>
-                    <span class="skill-tag">BigQuery</span>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h4>Deployment & Cloud</h4>
-                <div class="skill-tags">
-                    <span class="skill-tag">Flask</span>
-                    <span class="skill-tag">Render</span>
-                    <span class="skill-tag">Hugging Face</span>
-                    <span class="skill-tag">GitHub Pages</span>
-                </div>
-            </div>
-        </div>
+        </section>
 
         <div class="footer">
-            <p>&copy; 2026 Tinuola Rotimi. Built with GitHub Pages. <a href="https://github.com/TinuolaRotimi" target="_blank">GitHub</a></p>
+            <div class="footer-links">
+                <a href="mailto:thetinuolarotimi@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/tinuola-rotimi/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/TinuolaRotimi" target="_blank">GitHub</a>
+            </div>
+            <p>2026 Tinuola Rotimi.</p>
         </div>
     </div>
 </body>
