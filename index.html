@@ -401,6 +401,39 @@
             letter-spacing: 1px;
         }
 
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .category-btn {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid var(--border-light);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .category-btn:hover {
+            border-color: rgba(212, 168, 83, 0.5);
+            color: var(--text-primary);
+        }
+
+        .category-btn.active {
+            background: var(--gold);
+            color: #000;
+            border-color: var(--gold);
+        }
+
         .projects-grid {
             display: flex;
             flex-direction: column;
@@ -419,6 +452,10 @@
             grid-template-columns: 1fr auto;
             gap: 40px;
             align-items: start;
+        }
+
+        .project-card.hidden {
+            display: none;
         }
 
         .project-card:hover {
@@ -829,9 +866,16 @@
         <section class="section" id="projects">
             <p class="section-label">Work</p>
             <h2 class="section-title">Selected projects.</h2>
+            <div class="category-filters">
+                <button class="category-btn active" onclick="filterProjects('all')">All</button>
+                <button class="category-btn" onclick="filterProjects('fintech')">Fintech</button>
+                <button class="category-btn" onclick="filterProjects('humanitarian')">Humanitarian</button>
+                <button class="category-btn" onclick="filterProjects('esg')">ESG and Climate</button>
+                <button class="category-btn" onclick="filterProjects('analytics')">Analytics and BI</button>
+            </div>
             <div class="projects-grid">
 
-                <div class="project-card">
+                <div class="project-card" data-category="fintech">
                     <div class="project-card-main">
                         <h3>
                             AML Transaction Monitoring Anomaly Detection
@@ -861,7 +905,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="humanitarian">
                     <div class="project-card-main">
                         <h3>
                             Conflict Displacement Forecast Time Series Prediction
@@ -888,7 +932,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-category="esg">
                     <div class="project-card-main">
                         <h3>
                             ESG Risk Scoring Model Sub Saharan African Markets
@@ -954,7 +998,6 @@
                         <span class="skill-item">Python</span>
                         <span class="skill-item">SQL</span>
                         <span class="skill-item">DAX</span>
-                        <span class="skill-item">HTML and CSS</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -1017,5 +1060,22 @@
             <p>2026 Tinuola Rotimi. All rights reserved.</p>
         </div>
     </div>
+
+    <script>
+        function filterProjects(category) {
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const projects = document.querySelectorAll('.project-card');
+            projects.forEach(project => {
+                if (category === 'all' || project.dataset.category === category) {
+                    project.classList.remove('hidden');
+                } else {
+                    project.classList.add('hidden');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
