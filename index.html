@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinuola Rotimi</title>
+    <meta name="description" content="Tinuola Rotimi is a Data Scientist, ML Engineer, and Risk Consultant specializing in AML, ESG, predictive risk analytics, geospatial intelligence, and client advisory.">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23d4a853'/></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #030303;
+            --bg-card: #080808;
+            --border: #1a1a1a;
+            --border-light: #2a2a2a;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --text-muted: #606060;
+            --gold: #d4a853;
+            --gold-light: #e8cd7a;
+            --gold-dark: #b8922e;
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.3);
+            --gradient-gold: linear-gradient(135deg, #d4a853 0%, #e8cd7a 30%, #f0d98a 50%, #d4a853 70%, #b8922e 100%);
+            --card-glow: 0 0 60px rgba(212, 168, 83, 0.05);
+            --card-border: 1px solid #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(ellipse at 50% 0%, rgba(212, 168, 83, 0.03) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.01) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+        .nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 24px 0; margin-bottom: 60px; position: sticky; top: 0;
+            background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(30px); z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-name {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1rem;
+            font-weight: 700; color: var(--text-primary); letter-spacing: 1px; text-transform: uppercase;
+        }
+        .nav-name span { color: var(--gold); }
+        .nav-links { display: flex; gap: 36px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; transition: color 0.3s; letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .nav-links a:hover { color: var(--gold-light); }
+
+        .hero {
+            padding: 40px 0 120px; display: grid; grid-template-columns: 1fr 1fr;
+            gap: 80px; align-items: center; min-height: 80vh;
+        }
+        .hero-content { max-width: 560px; }
+        .hero-label {
+            display: inline-block; font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem;
+            font-weight: 500; color: var(--gold); letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 20px; padding: 8px 16px; border: 1px solid rgba(212, 168, 83, 0.2);
+            border-radius: 20px; background: rgba(212, 168, 83, 0.05);
+        }
+        .hero-greeting {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+        }
+        .hero-name {
+            font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 800;
+            letter-spacing: -1px; line-height: 1.05; margin-bottom: 12px; color: var(--text-primary); font-style: italic;
+        }
+        .hero-divider { width: 60px; height: 2px; background: var(--gradient-gold); margin-bottom: 24px; }
+        .hero-roles { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+        .hero-role-tag {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600;
+            color: var(--text-primary); letter-spacing: 1px; text-transform: uppercase;
+            padding: 8px 16px; border: 1px solid var(--border-light); border-radius: 6px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .hero-role-tag.active {
+            border-color: rgba(212, 168, 83, 0.4); color: var(--gold);
+            background: rgba(212, 168, 83, 0.05); animation: tagGlow 2s ease-in-out infinite;
+        }
+        @keyframes tagGlow {
+            0%, 100% { border-color: rgba(212, 168, 83, 0.3); }
+            50% { border-color: rgba(212, 168, 83, 0.7); }
+        }
+        .hero-bio { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 32px; }
+        .hero-bio strong { color: var(--text-primary); font-weight: 600; }
+        .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
+        .hero-link {
+            display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px;
+            border-radius: 10px; text-decoration: none; font-size: 0.85rem; font-weight: 600;
+            transition: all 0.3s; letter-spacing: 0.3px;
+        }
+        .hero-link.email { background: var(--gold); color: #000; }
+        .hero-link.email:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212, 168, 83, 0.3); }
+        .hero-link.linkedin { background: transparent; color: var(--text-primary); border: 1px solid var(--border-light); }
+        .hero-link.linkedin:hover { border-color: #0077B5; background: rgba(0, 119, 181, 0.1); color: #0077B5; transform: translateY(-2px); }
+        .hero-link.github { background: transparent; color: var(--text-primary); border: 1px solid var(--border-light); }
+        .hero-link.github:hover { border-color: #6e40c9; background: rgba(110, 64, 201, 0.1); color: #8b949e; transform: translateY(-2px); }
+        .hero-link svg { width: 18px; height: 18px; }
+
+        .hero-visual { display: flex; justify-content: center; align-items: center; }
+        .hero-image-wrapper { position: relative; width: 360px; height: 360px; }
+        .hero-image-ring-outer {
+            position: absolute; inset: -20px; border-radius: 50%;
+            border: 1px solid var(--border); animation: spinSlow 30s linear infinite;
+        }
+        .hero-image-ring-inner {
+            position: absolute; inset: -10px; border-radius: 50%;
+            border: 1px dashed rgba(212, 168, 83, 0.2); animation: spinSlow 20s linear infinite reverse;
+        }
+        @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .hero-image {
+            width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+            position: relative; z-index: 1; filter: grayscale(10%);
+        }
+        .hero-image-accent {
+            position: absolute; width: 40px; height: 40px; background: var(--gradient-gold);
+            border-radius: 50%; bottom: 10px; right: 20px; z-index: 2;
+            animation: float 3s ease-in-out infinite; box-shadow: 0 0 30px rgba(212, 168, 83, 0.5);
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+        .section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600;
+            color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700;
+            font-style: italic; letter-spacing: -0.5px; margin-bottom: 60px; color: var(--text-primary);
+        }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .about-text { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8; }
+        .about-text strong { color: var(--text-primary); font-weight: 600; }
+        .about-highlights { display: flex; flex-direction: column; gap: 24px; }
+        .about-highlight {
+            padding: 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card);
+        }
+        .about-highlight-number {
+            font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700;
+            font-style: italic; color: var(--gold); margin-bottom: 4px;
+        }
+        .about-highlight-label {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 600;
+            color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .category-filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        .category-btn {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600;
+            padding: 10px 20px; border-radius: 25px; border: 1px solid var(--border-light);
+            background: transparent; color: var(--text-secondary); cursor: pointer;
+            transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .category-btn:hover { border-color: rgba(212, 168, 83, 0.5); color: var(--text-primary); }
+        .category-btn.active { background: var(--gold); color: #000; border-color: var(--gold); }
+
+        .projects-grid { display: flex; flex-direction: column; gap: 20px; }
+        .project-card {
+            background: var(--bg-card); border: var(--card-border); border-radius: 20px;
+            padding: 40px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; box-shadow: var(--card-glow);
+            display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start;
+        }
+        .project-card.hidden { display: none; }
+        .project-card:hover {
+            border-color: rgba(212, 168, 83, 0.2); box-shadow: 0 0 80px rgba(212, 168, 83, 0.05);
+            transform: translateY(-2px);
+        }
+        .project-card-main h3 {
+            font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700;
+            letter-spacing: -0.3px; margin-bottom: 12px; text-transform: uppercase;
+            display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+        }
+        .project-card-main p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+        .project-stats { display: flex; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+        .project-stat {
+            font-size: 0.8rem; color: var(--text-muted); font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .project-stat strong {
+            display: block; color: var(--text-primary); font-weight: 700;
+            font-size: 1.1rem; font-family: 'Space Grotesk', sans-serif; margin-bottom: 2px;
+        }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .project-tags span {
+            background: rgba(255, 255, 255, 0.02); color: var(--text-muted); padding: 5px 12px;
+            border-radius: 6px; font-size: 0.72rem; font-weight: 500;
+            border: 1px solid var(--border); letter-spacing: 0.3px; text-transform: uppercase;
+        }
+        .project-links { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
+            border-radius: 8px; text-decoration: none; font-size: 0.82rem; font-weight: 600;
+            transition: all 0.3s; letter-spacing: 0.5px; text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .btn-primary { background: var(--gold); color: #000; }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(212, 168, 83, 0.3); }
+        .btn-outline { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-light); }
+        .btn-outline:hover { border-color: rgba(255, 255, 255, 0.3); color: var(--text-primary); }
+        .btn img { height: 16px; }
+
+        .project-badge {
+            display: inline-block; font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem;
+            font-weight: 600; padding: 4px 12px; border-radius: 12px; letter-spacing: 1px;
+            text-transform: uppercase; white-space: nowrap; background: var(--green);
+            color: #ffffff; box-shadow: 0 0 15px var(--green-glow); animation: livePulse 2s ease-in-out infinite;
+        }
+        @keyframes livePulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--green-glow); }
+            50% { opacity: 0.7; box-shadow: 0 0 20px var(--green-glow); }
+        }
+
+        .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+        .service-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 28px; text-align: center; transition: all 0.3s;
+        }
+        .service-card:hover { border-color: rgba(212, 168, 83, 0.2); transform: translateY(-2px); }
+        .service-card h4 {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; color: var(--gold);
+            margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .service-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; max-width: 90%; margin: 0 auto; }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .skill-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 28px; transition: all 0.3s;
+        }
+        .skill-card:hover { border-color: rgba(212, 168, 83, 0.15); }
+        .skill-card h4 {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; color: var(--gold);
+            margin-bottom: 18px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;
+        }
+        .skill-list { display: flex; flex-direction: column; gap: 8px; }
+        .skill-item {
+            color: var(--text-secondary); font-size: 0.85rem; font-weight: 400;
+            padding: 3px 0; transition: color 0.2s;
+        }
+        .skill-item:hover { color: var(--text-primary); }
+
+        .footer {
+            text-align: center; padding: 60px 0 40px; border-top: 1px solid var(--border);
+            margin-top: 80px; color: var(--text-muted); font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 20px; }
+        .footer-links a {
+            color: var(--text-secondary); text-decoration: none; font-weight: 500;
+            transition: color 0.3s; font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .footer-links a:hover { color: var(--gold-light); }
+
+        @media (max-width: 1000px) {
+            .hero { grid-template-columns: 1fr; gap: 50px; text-align: center; min-height: auto; }
+            .hero-content { max-width: 100%; }
+            .hero-divider { margin: 0 auto 24px; }
+            .hero-roles { justify-content: center; }
+            .hero-links { justify-content: center; }
+            .hero-name { font-size: 3rem; }
+            .hero-image-wrapper { width: 260px; height: 260px; margin: 0 auto; }
+            .about-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+            .project-card { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr; }
+            .hero-name { font-size: 2.4rem; }
+            .section-title { font-size: 2rem; }
+            .nav-links { gap: 18px; }
+            .nav-links a { font-size: 0.72rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="nav-name">Tinuola<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="mailto:thetinuolarotimi@gmail.com">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-label">Open to Opportunities</div>
+                <p class="hero-greeting">Hi, my name is</p>
+                <h1 class="hero-name">Tinuola Rotimi.</h1>
+                <div class="hero-divider"></div>
+                <div class="hero-roles">
+                    <span class="hero-role-tag active">Data Scientist</span>
+                    <span class="hero-role-tag">ML Engineer</span>
+                    <span class="hero-role-tag">Data Analyst</span>
+                    <span class="hero-role-tag">Risk Intelligence</span>
+                    <span class="hero-role-tag">Geospatial Analyst</span>
+                    <span class="hero-role-tag">Client Service Lead</span>
+                    <span class="hero-role-tag">Fintech Consultant</span>
+                </div>
+                <p class="hero-bio">
+                    I build <strong>production machine learning systems</strong> and deliver <strong>strategic risk intelligence</strong> for organizations navigating fragile states, emerging markets, and fintech ecosystems. My work bridges the gap between complex data and real world impact from <strong>anomaly detection</strong> and <strong>time series forecasting</strong> to <strong>business analysis</strong> and <strong>client advisory</strong>. I do not just ship models. I ship solutions that clients can trust and act on.
+                </p>
+                <div class="hero-links">
+                    <a href="mailto:thetinuolarotimi@gmail.com" class="hero-link email">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                        Send Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/tinuola-rotimi/" target="_blank" class="hero-link linkedin">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/TinuolaRotimi" target="_blank" class="hero-link github">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-ring-outer"></div>
+                    <div class="hero-image-ring-inner"></div>
+                    <img src="profile.jpg" alt="Tinuola Rotimi" class="hero-image" loading="lazy">
+                    <div class="hero-image-accent"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <p class="section-label">About</p>
+            <h2 class="section-title">The data scientist behind the solutions.</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I work at the intersection of <strong>advanced analytics</strong>, <strong>emerging market risk</strong>, and <strong>strategic decision making</strong>. My expertise spans <strong>unsupervised anomaly detection</strong>, <strong>time series forecasting</strong>, and <strong>geospatial intelligence</strong>, but I am not limited to just building models.</p>
+                    <br>
+                    <p>I also thrive in <strong>client services</strong> and <strong>customer support</strong> translating complex technical findings into clear actionable recommendations for stakeholders. I believe that a model is only as valuable as the decisions it enables.</p>
+                    <br>
+                    <p>Whether I am engineering an end to end ETL pipeline, advising a fintech on AML compliance, or supporting a humanitarian organization with geospatial risk maps, my goal is always the same. Deliver <strong>intelligence you can act on, analysis you can trust, and support you can rely on.</strong></p>
+                </div>
+                <div class="about-highlights">
+                    <div class="about-highlight"><div class="about-highlight-number">14</div><div class="about-highlight-label">Professional Certifications</div></div>
+                    <div class="about-highlight"><div class="about-highlight-number">99.7%</div><div class="about-highlight-label">Top Model Accuracy</div></div>
+                    <div class="about-highlight"><div class="about-highlight-number">8+</div><div class="about-highlight-label">Projects Deployed</div></div>
+                    <div class="about-highlight"><div class="about-highlight-number">5</div><div class="about-highlight-label">Industry Awards</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <p class="section-label">Work</p>
+            <h2 class="section-title">Selected projects.</h2>
+            <div class="category-filters" id="categoryFilters"></div>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+
+        <section class="section" id="services">
+            <p class="section-label">Services</p>
+            <h2 class="section-title">How I work.</h2>
+            <div class="service-grid">
+                <div class="service-card"><h4>Machine Learning Engineering</h4><p>Building, training, and deploying production grade models for anomaly detection, forecasting, and risk analytics.</p></div>
+                <div class="service-card"><h4>Data and Business Intelligence</h4><p>Designing dashboards, ETL pipelines, and analytics frameworks that turn raw data into strategic business insights.</p></div>
+                <div class="service-card"><h4>Client Advisory and Support</h4><p>Bridging the gap between technical teams and stakeholders. I explain complex models in plain language and ensure client success.</p></div>
+                <div class="service-card"><h4>Risk and Compliance Analytics</h4><p>Specializing in AML, ESG frameworks, and financial crime prevention for fintech and crypto ecosystems.</p></div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <p class="section-label">Skills</p>
+            <h2 class="section-title">Technologies I work with.</h2>
+            <div class="skills-grid">
+                <div class="skill-card"><h4>Languages and Frameworks</h4><div class="skill-list"><span class="skill-item">Python</span><span class="skill-item">SQL</span><span class="skill-item">DAX</span></div></div>
+                <div class="skill-card"><h4>Machine Learning and AI</h4><div class="skill-list"><span class="skill-item">Scikit-learn</span><span class="skill-item">TensorFlow</span><span class="skill-item">Keras</span><span class="skill-item">Prophet</span><span class="skill-item">ARIMA</span><span class="skill-item">LSTM</span><span class="skill-item">Neural Networks</span><span class="skill-item">NLP</span><span class="skill-item">Large Language Models</span><span class="skill-item">Generative AI</span><span class="skill-item">Anomaly Detection</span><span class="skill-item">Time Series Forecasting</span></div></div>
+                <div class="skill-card"><h4>Data, Analytics and BI</h4><div class="skill-list"><span class="skill-item">Pandas</span><span class="skill-item">NumPy</span><span class="skill-item">Matplotlib</span><span class="skill-item">Plotly</span><span class="skill-item">Power BI</span><span class="skill-item">Tableau</span><span class="skill-item">Google BigQuery</span><span class="skill-item">Geospatial Intelligence</span><span class="skill-item">ETL Pipelines</span><span class="skill-item">Data Validation</span></div></div>
+                <div class="skill-card"><h4>Deployment, Tools and Web3</h4><div class="skill-list"><span class="skill-item">Flask</span><span class="skill-item">Git</span><span class="skill-item">Render</span><span class="skill-item">Hugging Face</span><span class="skill-item">GitHub Pages</span><span class="skill-item">API Development</span><span class="skill-item">Blockchain</span><span class="skill-item">DeFi</span><span class="skill-item">Smart Contracts</span><span class="skill-item">Web3</span><span class="skill-item">KYC and AML Compliance</span></div></div>
+            </div>
+        </section>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="mailto:thetinuolarotimi@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/tinuola-rotimi/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/TinuolaRotimi" target="_blank">GitHub</a>
+            </div>
+            <p>2026 Tinuola Rotimi. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        const projects = [
+            {
+                title: "AML Transaction Monitoring Anomaly Detection",
+                categories: ["analytics-and-bi", "financial-crime-and-compliance", "fintech"],
+                description: "Unsupervised machine learning pipeline to detect suspicious transaction patterns in banking and blockchain data. Engineered features including transaction frequency, amount deviation, and time of day patterns. Used Isolation Forest and Autoencoder architectures to flag anomalous activity. Deployed as a Flask API enabling fintech and crypto clients to automate AML compliance workflows.",
+                stats: ["89% Precision", "0.1% False Positive Rate", "2 Models Deployed"],
+                tags: ["Python", "Scikit learn", "Pandas", "TensorFlow", "Flask"],
+                colab: "https://colab.research.google.com/drive/12CPIXY0UTaB9DxAKeLr1w60r_qyRWY_g?usp=sharing",
+                demo: "https://aml-monitor-rxzy.onrender.com",
+                live: true
+            },
+            {
+                title: "Carbon Emissions and Climate Policy Tracker",
+                categories: ["climate-and-environmental-risk", "esg-and-climate", "government-and-public-sector"],
+                description: "Built a global carbon emissions and climate policy compliance tracker using the Our World in Data CO2 dataset containing real emissions data for over 200 countries. Analyzed 50 largest emitters across a 10 year period with Paris Agreement compliance classification. Created an executive dashboard with emissions trajectory analysis, decarbonization tracking, and interactive global emissions mapping.",
+                stats: ["50 Countries Tracked", "38.6B Tonnes Global CO2", "10yr Trend Analysis"],
+                tags: ["Python", "Pandas", "Plotly", "Matplotlib", "Flask"],
+                colab: "https://colab.research.google.com/drive/1H637wXDGrQ5kfLBBvA3zQZ6onFpu5IwQ?usp=sharing",
+                demo: "https://carbon-emissions-tracker-38fa.onrender.com",
+                live: true
+            },
+            {
+                title: "Conflict Displacement Forecast Time Series Prediction",
+                categories: ["geospatial-intelligence", "government-and-public-sector", "humanitarian-and-conflict", "monitoring-and-evaluation"],
+                description: "Multi model forecasting system to predict internally displaced persons flows across Sub Saharan Africa. Merged ACLED conflict event data with UNHCR displacement records. Built and compared ARIMA, Prophet, and LSTM models. Achieved 99.76% accuracy in 3 month displacement trend predictions. Visualized outputs as interactive time series charts and maps using Plotly. Enabled humanitarian organizations to preposition resources before displacement spikes occurred.",
+                stats: ["99.76% Accuracy", "3 Models Deployed", "Plotly Interactive Dashboard"],
+                tags: ["Python", "ARIMA", "Prophet", "LSTM", "Plotly"],
+                colab: "https://colab.research.google.com/drive/1L-KHJXMd-6ZbKMicxf8QvWUvqxRb-fgg?usp=sharing",
+                demo: null,
+                live: true
+            },
+            {
+                title: "Customer Segmentation and RFM Analysis",
+                categories: ["analytics-and-bi", "supply-chain-and-logistics"],
+                description: "Performed customer segmentation using RFM (Recency, Frequency, Monetary) analysis and KMeans clustering on real e-commerce transaction data from the UCI Online Retail dataset. Analyzed over 500,000 transactions across 4,338 customers to identify 5 distinct behavioral segments. Engineered RFM features and applied unsupervised learning to deliver actionable retention strategies per segment with executive dashboard visualizations and Power BI ready exports.",
+                stats: ["541K+ Transactions", "4,338 Customers Segmented", "5 Behavioral Clusters"],
+                tags: ["Python", "Pandas", "Scikit learn", "Plotly", "Power BI"],
+                colab: "https://colab.research.google.com/drive/1z1WtfYnwjbWKGWNnQyR_zA6FfmmoTYlb?usp=sharing",
+                demo: "https://customer-segmentation-rfm-opir.onrender.com",
+                live: true
+            },
+            {
+                title: "ESG Risk Scoring Model Sub Saharan African Markets",
+                categories: ["development-finance", "esg-and-climate", "government-and-public-sector"],
+                description: "Designed a machine learning based ESG risk scoring framework for country level investment decisions. Aggregated governance (WGI), environmental (EPI), and social indicators across 45 African countries. Built a weighted Random Forest model to rank nations by ESG risk, validated against real world investment outcomes. Visualized results as an interactive heatmap showing risk scores by country and ESG pillar. Helped private equity and DFI clients assess portfolio exposure and reduce risk in emerging markets.",
+                stats: ["45 Countries Analyzed", "86.7% CV Accuracy", "98% ROC-AUC"],
+                tags: ["Python", "Random Forest", "Pandas", "World Bank Data", "WGI and EPI"],
+                colab: "https://colab.research.google.com/drive/1JG08ZBOIaueA9jtxNA3CY0VWn9LOnQam?usp=sharing",
+                demo: "https://esg-risk-scoring.onrender.com/",
+                live: true
+            },
+            {
+                title: "Healthcare Access and Outcomes Analytics",
+                categories: ["analytics-and-bi", "government-and-public-sector", "monitoring-and-evaluation", "public-health-and-epidemiology"],
+                description: "Built a global healthcare access and outcomes analytics platform using real Gapminder data covering 142 countries. Engineered composite health indicators including Healthcare Capacity Index, Health Outcomes Index, and Healthcare Efficiency Score. Created an executive dashboard with WHO regional comparisons, efficiency frontier analysis, and interactive global health mapping for policy planning and resource allocation.",
+                stats: ["142 Countries Analyzed", "6 WHO Regions", "Efficiency Frontier Analysis"],
+                tags: ["Python", "Pandas", "Plotly", "Scikit learn", "Flask"],
+                colab: "https://colab.research.google.com/drive/1GvdX8c_x8yAog84fTJ4U0_Bt9NAwPZvo?usp=sharing",
+                demo: "https://healthcare-access-analytics.onrender.com",
+                live: true
+            },
+            {
+                title: "Real Estate Market Intelligence Tool",
+                categories: ["analytics-and-bi", "geospatial-intelligence"],
+                description: "Built a real estate market intelligence platform using the Melbourne Housing dataset containing over 34,000 real property transactions. Engineered an Automated Valuation Model with Random Forest achieving high predictive accuracy. Created a suburb investment scoring framework with affordability, growth, and location metrics. Delivered an executive dashboard with geospatial price mapping and investment tier classification.",
+                stats: ["34K+ Properties Analyzed", "Random Forest Valuation Model", "300+ Suburbs Scored"],
+                tags: ["Python", "Pandas", "Scikit learn", "Plotly", "Flask"],
+                colab: "https://colab.research.google.com/drive/19PQkDwUL6vG3EupoNPtttyjmlLJTXI22?usp=sharing",
+                demo: "https://real-estate-market-intelligence-jsyh.onrender.com",
+                live: true
+            },
+            {
+                title: "Supply Chain Risk Analytics Dashboard",
+                categories: ["analytics-and-bi", "supply-chain-and-logistics"],
+                description: "Built a supply chain risk analytics platform using the DataCo Smart Supply Chain dataset containing over 180,000 real transactions across 164 countries. Engineered supplier risk scores using on-time delivery rates, lead time volatility, and financial impact metrics. Created an executive dashboard with risk tier classification, concentration analysis, and geospatial risk mapping for strategic sourcing decisions.",
+                stats: ["180K+ Orders Analyzed", "164 Countries", "11 Supplier Departments"],
+                tags: ["Python", "Pandas", "Plotly", "Scikit learn", "Flask"],
+                colab: "https://colab.research.google.com/drive/1qjkwJdzWhjURvC5gPGVUNbXG-ceB68ij?usp=sharing",
+                demo: "https://supply-chain-risk-dashboard-zocl.onrender.com",
+                live: true
+            }
+        ];
+
+        const categoryNames = {
+            "all": "All",
+            "analytics-and-bi": "Analytics and BI",
+            "climate-and-environmental-risk": "Climate and Environmental Risk",
+            "development-finance": "Development Finance",
+            "esg-and-climate": "ESG and Climate",
+            "financial-crime-and-compliance": "Financial Crime and Compliance",
+            "fintech": "Fintech",
+            "geospatial-intelligence": "Geospatial Intelligence",
+            "government-and-public-sector": "Government and Public Sector",
+            "humanitarian-and-conflict": "Humanitarian and Conflict",
+            "monitoring-and-evaluation": "Monitoring and Evaluation",
+            "public-health-and-epidemiology": "Public Health and Epidemiology",
+            "supply-chain-and-logistics": "Supply Chain and Logistics"
+        };
+
+        function buildCategoryButtons() {
+            const container = document.getElementById('categoryFilters');
+            const sortedCategories = Object.keys(categoryNames).sort((a, b) => {
+                if (a === 'all') return -1;
+                if (b === 'all') return 1;
+                return categoryNames[a].localeCompare(categoryNames[b]);
+            });
+
+            sortedCategories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'category-btn' + (cat === 'all' ? ' active' : '');
+                btn.textContent = categoryNames[cat];
+                btn.onclick = function() { filterProjects(cat); };
+                container.appendChild(btn);
+            });
+        }
+
+        function buildProjectCards() {
+            const container = document.getElementById('projectsGrid');
+            const sortedProjects = [...projects].sort((a, b) => a.title.localeCompare(b.title));
+
+            sortedProjects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.setAttribute('data-categories', project.categories.join(','));
+
+                let linksHtml = '';
+                if (project.colab) {
+                    linksHtml += `<a href="${project.colab}" target="_blank" class="btn btn-outline"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab"> View Notebook</a>`;
+                }
+                if (project.demo) {
+                    linksHtml += `<a href="${project.demo}" target="_blank" class="btn btn-primary">Live Demo</a>`;
+                }
+                if (!project.demo && project.colab) {
+                    linksHtml = `<a href="${project.colab}" target="_blank" class="btn btn-primary"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab"> View Notebook</a>`;
+                }
+
+                card.innerHTML = `
+                    <div class="project-card-main">
+                        <h3>
+                            ${project.title}
+                            ${project.live ? '<span class="project-badge">Live</span>' : ''}
+                        </h3>
+                        <p>${project.description}</p>
+                        <div class="project-stats">
+                            ${project.stats.map(s => `<div class="project-stat"><strong>${s.split(' ')[0]}</strong> ${s.split(' ').slice(1).join(' ')}</div>`).join('')}
+                        </div>
+                        <div class="project-tags">
+                            ${project.tags.map(t => `<span>${t}</span>`).join('')}
+                        </div>
+                        <div class="project-links">
+                            ${linksHtml}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterProjects(category) {
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const cardCategories = card.getAttribute('data-categories').split(',');
+                if (category === 'all' || cardCategories.includes(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        buildCategoryButtons();
+        buildProjectCards();
+    </script>
+</body>
+</html>
