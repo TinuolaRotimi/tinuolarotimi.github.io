@@ -232,6 +232,17 @@
             50% { opacity: 0.7; box-shadow: 0 0 20px var(--green-glow); }
         }
 
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 40px; flex-wrap: wrap; }
+        .page-btn {
+            font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 600;
+            padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border-light);
+            background: transparent; color: var(--text-secondary); cursor: pointer;
+            transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .page-btn:hover { border-color: rgba(212, 168, 83, 0.5); color: var(--text-primary); }
+        .page-btn.active { background: var(--gold); color: #000; border-color: var(--gold); }
+        .page-btn.disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+
         .service-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
         .service-card {
             background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
@@ -367,7 +378,7 @@
                 <div class="about-highlights">
                     <div class="about-highlight"><div class="about-highlight-number">14</div><div class="about-highlight-label">Professional Certifications</div></div>
                     <div class="about-highlight"><div class="about-highlight-number">99.7%</div><div class="about-highlight-label">Top Model Accuracy</div></div>
-                    <div class="about-highlight"><div class="about-highlight-number">8+</div><div class="about-highlight-label">Projects Deployed</div></div>
+                    <div class="about-highlight"><div class="about-highlight-number">11+</div><div class="about-highlight-label">Projects Deployed</div></div>
                     <div class="about-highlight"><div class="about-highlight-number">5</div><div class="about-highlight-label">Industry Awards</div></div>
                 </div>
             </div>
@@ -378,6 +389,7 @@
             <h2 class="section-title">Selected projects.</h2>
             <div class="category-filters" id="categoryFilters"></div>
             <div class="projects-grid" id="projectsGrid"></div>
+            <div class="pagination" id="pagination"></div>
         </section>
 
         <section class="section" id="services">
@@ -413,6 +425,10 @@
     </div>
 
     <script>
+        const PROJECTS_PER_PAGE = 3;
+        let currentCategory = 'all';
+        let currentPage = 1;
+
         const projects = [
             {
                 title: "AML Transaction Monitoring Anomaly Detection",
@@ -475,6 +491,26 @@
                 live: true
             },
             {
+                title: "Human Trafficking Transaction Pattern Detection",
+                categories: ["financial-crime-and-compliance", "humanitarian-and-conflict", "government-and-public-sector"],
+                description: "Built a human trafficking transaction pattern detection system using real PaySim mobile money data containing over 6.3 million transactions. Applied FATF and UNODC red flag indicators to identify potential trafficking networks across three typologies. Trained Random Forest and XGBoost classifiers achieving 98.42% F1 score with network visualization for intelligence reporting.",
+                stats: ["6.3M Transactions", "3 Trafficking Typologies", "98.4% F1 Score"],
+                tags: ["Python", "XGBoost", "NetworkX", "Plotly", "Scikit learn"],
+                colab: "https://colab.research.google.com/drive/1ENW4JWIJPikZKSoRNKdz1ylVUuiKM8ct?usp=sharing",
+                demo: null,
+                live: true
+            },
+            {
+                title: "Money Mule Account Detection Using Graph Networks",
+                categories: ["financial-crime-and-compliance", "fintech", "geospatial-intelligence"],
+                description: "Built a money mule account detection system using graph network analysis on real PaySim transaction data. Constructed directed transaction graphs and calculated centrality metrics to identify accounts exhibiting money mule behavior. Trained Random Forest and XGBoost classifiers on both transactional and network-based features.",
+                stats: ["6.3M Transactions", "4,548 Graph Nodes", "93.6% ROC-AUC"],
+                tags: ["Python", "NetworkX", "XGBoost", "Plotly", "Scikit learn"],
+                colab: "https://colab.research.google.com/drive/1wKJ6m9Yjn_eg5Bab5wPpvDz1gQPO2WFK?usp=sharing",
+                demo: null,
+                live: true
+            },
+            {
                 title: "Real Estate Market Intelligence Tool",
                 categories: ["analytics-and-bi", "geospatial-intelligence"],
                 description: "Built a real estate market intelligence platform using the Melbourne Housing dataset containing over 34,000 real property transactions. Engineered an Automated Valuation Model with Random Forest achieving high predictive accuracy. Created a suburb investment scoring framework with affordability, growth, and location metrics. Delivered an executive dashboard with geospatial price mapping and investment tier classification.",
@@ -492,6 +528,16 @@
                 tags: ["Python", "Pandas", "Plotly", "Scikit learn", "Flask"],
                 colab: "https://colab.research.google.com/drive/1qjkwJdzWhjURvC5gPGVUNbXG-ceB68ij?usp=sharing",
                 demo: "https://supply-chain-risk-dashboard-zocl.onrender.com",
+                live: true
+            },
+            {
+                title: "Trade Finance Document Fraud Detection",
+                categories: ["financial-crime-and-compliance", "supply-chain-and-logistics", "fintech"],
+                description: "Built a trade finance document fraud detection system using NLP and machine learning on real transaction data. Engineered fraud indicators based on ICC and bank compliance standards including duplicate invoicing, inflated pricing, and country risk mismatches. Extracted TF-IDF features from document text and trained Random Forest and XGBoost classifiers.",
+                stats: ["5,000 Documents", "93.98% Precision", "92.6% ROC-AUC"],
+                tags: ["Python", "NLP", "XGBoost", "Scikit learn", "TF-IDF"],
+                colab: "https://colab.research.google.com/drive/1gXYTEwZq2Y1xLIc99bmZZI9zQg5YiupJ?usp=sharing",
+                demo: null,
                 live: true
             }
         ];
@@ -512,28 +558,41 @@
             "supply-chain-and-logistics": "Supply Chain and Logistics"
         };
 
+        function getFilteredProjects() {
+            if (currentCategory === 'all') return [...projects].sort((a, b) => a.title.localeCompare(b.title));
+            return [...projects].filter(p => p.categories.includes(currentCategory)).sort((a, b) => a.title.localeCompare(b.title));
+        }
+
         function buildCategoryButtons() {
             const container = document.getElementById('categoryFilters');
+            container.innerHTML = '';
             const sortedCategories = Object.keys(categoryNames).sort((a, b) => {
                 if (a === 'all') return -1;
                 if (b === 'all') return 1;
                 return categoryNames[a].localeCompare(categoryNames[b]);
             });
-
             sortedCategories.forEach(cat => {
                 const btn = document.createElement('button');
-                btn.className = 'category-btn' + (cat === 'all' ? ' active' : '');
+                btn.className = 'category-btn' + (cat === currentCategory ? ' active' : '');
                 btn.textContent = categoryNames[cat];
-                btn.onclick = function() { filterProjects(cat); };
+                btn.onclick = function() {
+                    currentCategory = cat;
+                    currentPage = 1;
+                    renderAll();
+                };
                 container.appendChild(btn);
             });
         }
 
-        function buildProjectCards() {
+        function renderProjects() {
             const container = document.getElementById('projectsGrid');
-            const sortedProjects = [...projects].sort((a, b) => a.title.localeCompare(b.title));
+            container.innerHTML = '';
+            const filtered = getFilteredProjects();
+            const start = (currentPage - 1) * PROJECTS_PER_PAGE;
+            const end = start + PROJECTS_PER_PAGE;
+            const pageProjects = filtered.slice(start, end);
 
-            sortedProjects.forEach(project => {
+            pageProjects.forEach(project => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
                 card.setAttribute('data-categories', project.categories.join(','));
@@ -571,24 +630,49 @@
             });
         }
 
-        function filterProjects(category) {
-            const buttons = document.querySelectorAll('.category-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        function renderPagination() {
+            const container = document.getElementById('pagination');
+            container.innerHTML = '';
+            const filtered = getFilteredProjects();
+            const totalPages = Math.ceil(filtered.length / PROJECTS_PER_PAGE);
 
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach(card => {
-                const cardCategories = card.getAttribute('data-categories').split(',');
-                if (category === 'all' || cardCategories.includes(category)) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+            if (totalPages <= 1) return;
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn' + (currentPage === 1 ? ' disabled' : '');
+            prevBtn.textContent = 'Prev';
+            prevBtn.onclick = function() {
+                if (currentPage > 1) { currentPage--; renderAll(); }
+            };
+            container.appendChild(prevBtn);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+                pageBtn.textContent = i;
+                pageBtn.onclick = function() {
+                    currentPage = i;
+                    renderAll();
+                };
+                container.appendChild(pageBtn);
+            }
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn' + (currentPage === totalPages ? ' disabled' : '');
+            nextBtn.textContent = 'Next';
+            nextBtn.onclick = function() {
+                if (currentPage < totalPages) { currentPage++; renderAll(); }
+            };
+            container.appendChild(nextBtn);
         }
 
-        buildCategoryButtons();
-        buildProjectCards();
+        function renderAll() {
+            buildCategoryButtons();
+            renderProjects();
+            renderPagination();
+        }
+
+        renderAll();
     </script>
 </body>
 </html>
